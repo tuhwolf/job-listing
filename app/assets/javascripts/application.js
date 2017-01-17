@@ -16,6 +16,7 @@
 //= require bootstrap/alert
 //= require bootstrap/dropdown
 // = require bootstrap/tab
+// = require local_time
 //= require_tree .
 
 //= require bootstrap/carousel
