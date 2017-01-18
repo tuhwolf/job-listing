@@ -63,3 +63,8 @@
 <div class="pull-right">
   <%= link_to("Add a new job", new_job_path, class: "btn btn-primary")%>
 </div>
+
+<!-- add paginate function -->
+<div class="text-center">
+  <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+</div>

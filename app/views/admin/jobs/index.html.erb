@@ -66,3 +66,8 @@
   <% end %>
   </tbody>
 </table>
+
+<!-- add paginate function -->
+<div class="text-center">
+  <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+</div>
