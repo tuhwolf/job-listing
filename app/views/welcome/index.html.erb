@@ -87,27 +87,48 @@
   </div>
 </section> -->
 
-<div class="container-fluid">
-  <div class="row search">
-    <div class="col-sm-1 col-lg-1"></div>
-    <div class="col-sm-8 col-lg-6 col-lg-offset-2" text-align="center">
-      <form accept-charset="UTF-8" action="#search" class="jobs-search-form" method="get"><div style="display:none"><input name="utf8" type="hidden" value="✓"></div>
-        <div class="input-group">
-          <input type="text" class="form-control" name="q" value="" placeholder="请在此搜索关键字...">
+<div class="row">
+  <div class="col-sm-9 col-lg-8 col-lg-offset-2">
+    <%= form_tag "#" , :method => :get, :class => "jobs-search-form" do %>
+      <div class="input-group">
+        <input type="text" class="form-control" name="q" value="<%= params[:q] %>" placeholder="搜索工作关键字...">
 
-          <span class="input-group-btn">
-            <button type="submit" class="btn btn-default">
-              <span class="glyphicon glyphicon-search"></span>
-            </button>
-          </span>
-        </div>
-      </form>
+        <span class="input-group-btn">
+          <button type="submit" class="btn btn-default">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div>
+    <% end %>
+  </div>
 
+  <div class="col-sm-3 col-lg-2">
+    <%= link_to '戳此发布新职位' , "#" , :remote => true, :class => "btn btn-primary btn-success" %>
+  </div>
+</div>
+
+  <!-- <div class="container-fluid">
+    <div class="row search">
+      <div class="col-sm-1 col-lg-1"></div>
+      <div class="col-sm-8 col-lg-6 col-lg-offset-2" text-align="center">
+        <form accept-charset="UTF-8" action="#search" class="jobs-search-form" method="get"><div style="display:none"><input name="utf8" type="hidden" value="✓"></div>
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" value="" placeholder="请在此搜索关键字...">
+
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-default">
+                <span class="glyphicon glyphicon-search"></span>
+              </button>
+            </span>
+          </div>
+        </form>
+
+      </div>
     </div>
     <div class="col-sm-2 col-lg-1">
       <%= link_to("戳此发布新职位", new_job_path, :class => "btn btn-primary btn-success") %>
     </div>
-  </div>
+  </div> -->
 
   <hr />
 

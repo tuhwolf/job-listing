@@ -38,8 +38,12 @@
 .navbar-default .navbar-brand {
    color: #212121;//字体颜色
    padding: 10px 10px;//上下10px,左右15px
-   font-size: 20px;
+   font-size: 25px;
+   font-weight: 700;
    line-height: 30px;//文字行高
+   letter-spacing: -1px;
+	padding: 15px 0;
+	
 }
 
 .navbar-default .navbar-right .navbar-brand:hover,
@@ -141,6 +145,12 @@
  .phases h2{
    margin-top: 50px;
    margin-bottom: 30px;
+ }
+
+ .row {
+   margin-top: 30px;
+   margin-top: 30px;
+
  }
 
 //修改图片内字体样式
