@@ -6,30 +6,27 @@
       <!-- <a class="navbar-brand" href="/">Big Offer</a> -->
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li>
+          <%= link_to("首页", root_path, class: "btn btn-lg")%>
+        </li>
+        <li>
+          <%= link_to("找工作", href="/jobs", class: "btn btn-lg")%>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <li>
-            <%= link_to("首页", root_path, class: "btn btn-lg")%>
-          </li>
-          <li>
-            <%= link_to("找工作", href="/jobs", class: "btn btn-lg")%>
-          </li>
-          <!-- <li>
-            <%= link_to("常见问题", root_path, class: "btn btn-lg")%>
-          </li> -->
-          <!-- <%= link_to("Login", "#")%> -->
           <% if !current_user %>
             <li>
-              <%= link_to("登录", new_user_session_path, class: "btn btn-lg")%>
+              <%= link_to('<span class="glyphicon glyphicon-log-in"></span> 登录'.html_safe, new_user_session_path) %>
             </li>
             <li>
-              <%= link_to("注册", new_user_registration_path, class: "btn-info")%>
+              <%= link_to('<span class="glyphicon glyphicon-user"></span> 注册'.html_safe, new_user_registration_path) %>
             </li>
 
           <% else %>
             <Li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <%= current_user.email%>
+                  <i class="fa fa-user-circle"></i> <%= current_user.email%>
                   <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
@@ -39,7 +36,7 @@
                   </li>
                 <% end %>
                   <li>
-                    <%= link_to("登出", destroy_user_session_path, method: :delete)%>
+                    <%= link_to("<span class='glyphicon glyphicon-log-out'></span> 登出".html_safe, destroy_user_session_path, method: :delete) %>
                   </li>
               </ul>
             </Li>
