@@ -1,0 +1,23 @@
+
+<table class="table table-boldered">
+  <thead>
+    <tr>
+      <td>Job Supply</td>
+      <td>Wage Lower Bound</td>
+      <td>Wage Upper Bound</td>
+      <td>Post Time</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job|%>
+      <tr>
+        <td>
+          <%= link_to job.title, job%>
+        </td>
+        <td><%= job.wage_lower_bound%></td>
+        <td><%= job.wage_upper_bound%></td>
+        <td><%= local_time(job.created_at, '%B %e, %Y %l:%M%p')%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

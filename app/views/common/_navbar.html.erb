@@ -3,12 +3,12 @@
   <div class="container">
     <div class="navigation-bar">
         <div class="row">
-            <div class="col-xs-6">
-                <ol class="logo">
-                    <a id="logo" href="/"><span class="fa fa-viacoin"></span>Big Offer</a>
-                    <%= link_to("Home", root_path, class: "btn btn-lg")%>
-                </ol>
+            <div class="col-md-5">
+                <ol>
 
+                  <%= link_to("Big Offer", href="/", class: "fa fa-viacoin")%>
+                  <%= link_to("Explore", href="/jobs", class: "btn btn-lg")%>
+                </ol>
             </div>
 
 
@@ -38,6 +38,9 @@
                             <%= link_to("Admin Panel", admin_jobs_path)%>
                           </li>
                         <% end %>
+                          <li>
+                            <%= link_to("My Jobs", account_jobs_path) %>
+                          </li>
                           <li>
                             <%= link_to("<span class='glyphicon glyphicon-log-out'></span> Logout".html_safe, destroy_user_session_path, method: :delete) %>
                           </li>

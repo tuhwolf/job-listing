@@ -1,23 +1,6 @@
 <!-- add a searchbar -->
 <div class="row">
-  <div class="col-sm-9 col-lg-8 col-lg-offset-2">
-    <%= form_tag search_jobs_path , :method => :get, :class => "jobs-search-form" do %>
-      <div class="input-group">
-        <input type="text" class="form-control" name="q" value="<%= params[:q] %>" placeholder="搜索工作关键字...">
-
-        <span class="input-group-btn">
-          <button type="submit" class="btn btn-default btn-info">
-            <span class="glyphicon glyphicon-search"></span>
-          </button>
-        </span>
-      </div>
-    <% end %>
-  </div>
-
-
-  <!-- <div class="col-sm-3 col-lg-2">
-    <%= link_to '戳此发布新职位' , "#" , :remote => true, :class => "btn btn-primary btn-success" %>
-  </div> -->
+    <%= render :partial => "jobs/search_bar" %>
 </div>
 
 <table class="table table-boldered">
@@ -44,27 +27,24 @@
 
   <div class="dropdown clearfix pull-right">
     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      Sort by
+      Filter by
       <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
       <li>
-        <%= link_to("sort by wage lower bound", jobs_path(order: "by_lower_bound"))%>
+        <%= link_to("wage lower bound", jobs_path(order: "by_lower_bound"))%>
       </li>
       <li>
-        <%= link_to("sort by wage upper bound", jobs_path(order: "by_upper_bound"))%>
+        <%= link_to("wage upper bound", jobs_path(order: "by_upper_bound"))%>
       </li>
       <li>
-        <%= link_to("sort by post time", jobs_path)%>
+        <%= link_to("post time", jobs_path)%>
       </li>
     </ul>
   </div>
-</table>
-<div class="pull-right">
-  <%= link_to("Add a new job", new_job_path, class: "btn btn-primary")%>
-</div>
 
-<!-- add paginate function -->
+</table>
+
 <div class="text-center">
   <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
 </div>

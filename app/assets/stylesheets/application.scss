@@ -20,6 +20,7 @@
  @import 'font-awesome';
 
 
+
 .input-group {
   margin-top: 20px;
 }
@@ -657,20 +658,20 @@
  .footer{
  	background-color: #202020;
  	text-align: center;
- 	padding: 60px 0;
-  margin-bottom: 0;
+ 	padding: 40px 0;
+
 
  }
- .footer span{
- 	color: #51c2b9;
- }
+ // .footer span{
+ // 	color: #51c2b9;
+ // }
  .footer p{
  	font-size: 21px;
  	color: #fff;
  	margin-bottom: 0;
  }
  .footer a{
- 	color: #fff;
+ 	color: #51c2b9;
  }
 
 

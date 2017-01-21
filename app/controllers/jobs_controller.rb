@@ -6,12 +6,12 @@ class JobsController < ApplicationController
     # @jobs = Job.all
     @jobs = case params[:order]
             when 'by_lower_bound'
-              Job.published.lower
+              Job.published.lower.paginate(page: params[:page], per_page: 5)
             when 'by_upper_bound'
-              Job.published.upper
+              Job.published.upper.paginate(page: params[:page], per_page: 5)
             else
               Job.published.recent.paginate(page: params[:page], per_page: 5)
-    end
+            end
   end
 
   def new
@@ -58,7 +58,7 @@ class JobsController < ApplicationController
   def search
     if @query_string.present?
       search_result = Job.ransack(@search_criteria).result(distinct: true)
-      @jobs = search_result.paginate(page: params[:page], per_page: 20 )
+      @jobs = search_result.recent.paginate(page: params[:page], per_page: 5 )
     end
   end
 

@@ -3,7 +3,10 @@
 <p>
   <%= simple_format(@job.description)%>
 </p>
-
-<div class="text-center">
-  <%= link_to("Send your resume", new_job_resume_path(@job), style: "font-size: 30px; text-decoration: underline;")%>
-</div>
+<span class="pull-left">
+  <% if current_user && current_user.has_applied?(@job) %>
+    <%= link_to("Has Applied", new_job_resume_path(@job), class: "btn btn-success btn-sm disabled", method: :get)%>
+  <% else %>
+    <%= link_to("Applied Now?", new_job_resume_path(@job), class: "btn btn-success btn-sm", method: :get)%>
+  <% end %>
+</span>
