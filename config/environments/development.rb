@@ -54,4 +54,5 @@ Rails.application.configure do
 
   config.active_record.default_timezone = :local
   config.time_zone = 'Beijing'
+
 end

@@ -699,9 +699,17 @@
 
 
 
-
  @media (max-width: 767px){
  	.vira-card{
  		margin-bottom: 60px;
  	}
  }
+
+// for sign
+ .sign-up-page, .login-page {
+  margin-top: 80px;
+  margin-bottom: 80px;
+  input:focus {
+    border-color: red;
+  }
+}
