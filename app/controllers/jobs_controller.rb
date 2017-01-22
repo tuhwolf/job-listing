@@ -62,6 +62,19 @@ class JobsController < ApplicationController
     end
   end
 
+  # def apply
+  #   @job = Job.find(params[:id])
+  #
+  #   if !current_user.has_applied?(@job)
+  #     current_user.apply!(@job)
+  #     flash[:nitice] = "Applied the job successfully!"
+  #   else
+  #     flash[:warning] = "You've already applied the job!"
+  #   end
+  #
+  #   redirect_to job_path(@job)
+  # end
+
   private
 
   def job_params

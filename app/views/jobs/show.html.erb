@@ -1,12 +1,14 @@
-<h1><%= @job.title %></h1>
+<h1 style="margin: 50px 0;"><%= @job.title %></h1>
 
 <p>
   <%= simple_format(@job.description)%>
 </p>
-<span class="pull-left">
+<span class="pull-left" style="margin: 50px 0 100px;">
   <% if current_user && current_user.has_applied?(@job) %>
-    <%= link_to("Has Applied", new_job_resume_path(@job), class: "btn btn-success btn-sm disabled", method: :get)%>
+    <label class="label label-success">You've Applied!</label>
+
   <% else %>
-    <%= link_to("Applied Now?", new_job_resume_path(@job), class: "btn btn-success btn-sm", method: :get)%>
+    <label class="label label-warning">You haven't Applied yet!</label>
+    <%= link_to("Applied Now", new_job_resume_path(@job), class: "btn btn-success btn-sm", method: :get)%>
   <% end %>
 </span>

@@ -13,7 +13,8 @@ class ResumesController < ApplicationController
     @resume.user = current_user
 
     if @resume.save
-      flash[:notice] = 'Created resume!'
+      current_user.apply!(@job)
+      flash[:notice] = 'Resume uploaded successfully!'
       redirect_to job_path(@job)
     else
       render :new
