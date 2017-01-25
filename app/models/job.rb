@@ -1,5 +1,12 @@
 class Job < ApplicationRecord
   validates :title, presence: true
+  validates :wage_upper_bound, presence: true
+  validates :wage_lower_bound, presence: true
+  validates :wage_lower_bound, numericality: { greater_than: 0}
+  # validates :contact_email, presence: true
+  validates :company, presence: true
+  validates :location, presence: true
+
   has_many :resumes
   has_many :job_relationships
   has_many :members, through: :job_relationships, source: :user

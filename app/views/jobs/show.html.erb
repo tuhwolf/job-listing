@@ -1,14 +1,37 @@
-<h1 style="margin: 50px 0;"><%= @job.title %></h1>
 
-<p>
-  <%= simple_format(@job.description)%>
-</p>
-<span class="pull-left" style="margin: 50px 0 100px;">
-  <% if current_user && current_user.has_applied?(@job) %>
-    <label class="label label-success">You've Applied!</label>
+<div class="container" style="margin-top: 30px;">
+    <div class="row">
+  		<div class="col-sm-12">
+        <div class="well">
+    		<h2><%= @job.title %></h2>
+        <hr />
+        <div class="pull-right">
+          <% if current_user && current_user.has_applied?(@job) %>
 
-  <% else %>
-    <label class="label label-warning">You haven't Applied yet!</label>
-    <%= link_to("Applied Now", new_job_resume_path(@job), class: "btn btn-success btn-sm", method: :get)%>
-  <% end %>
-</span>
+            <p><span class="label label-warning" ><i class="icon-ok"></i> You've applied!</span></p>
+
+          <% else %>
+
+            <small><a class="label label-warning " ><i class="fa fa-calendar-check-o" aria-hidden="true"></i> You haven't applied yet!</a></small>
+            <%= link_to("Applied Now", new_job_resume_path(@job), class: "label label-success", method: :get)%>
+         <% end %>
+        </div>
+
+    		<ul>
+    			<li>company: <%= @job.company %></li>
+    			<li>location: <%= @job.location %></li>
+    			<li>wage_lower_bound: <%= @job.wage_lower_bound %></li>
+    			<li>wage_upper_bound: <%= @job.wage_upper_bound %></li>
+    		</ul>
+        <hr />
+        <p>
+          <%= simple_format(@job.description)%>
+        </p>
+    		<hr>
+
+    		<hr>
+
+    	</div>
+    </div>
+	</div>
+</div>

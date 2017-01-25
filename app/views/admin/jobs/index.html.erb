@@ -8,22 +8,20 @@
   <thead>
     <tr>
       <td>
-          Job
+          <i class="fa fa-globe" aria-hidden="true"></i>Job
       </td>
       <td>
-          Resumes received
+          <i class="fa fa-envelope" aria-hidden="true"></i>Resumes received
       </td>
       <td>
-          Wage lower bound
+          <i class="fa fa-money" aria-hidden="true"></i>Salary
+      </td>
+
+      <td>
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Manage items
       </td>
       <td>
-          Wage upper bound
-      </td>
-      <td>
-          Manage items
-      </td>
-      <td>
-          Last update
+          <i class="fa fa-clock-o" aria-hidden="true"></i>Last update
       </td>
     </tr>
   </thead>
@@ -44,11 +42,9 @@
         <%= link_to(job.resumes.count, admin_job_resumes_path(job))%>
       </td>
       <td>
-        <%= job.wage_lower_bound%>
+        <%= job.wage_lower_bound%> ~ <%= job.wage_upper_bound%>
       </td>
-      <td>
-        <%= job.wage_upper_bound%>
-      </td>
+
       <td>
         <%= link_to edit_admin_job_path(job), class: "btn btn-xs btn-success" do %><i class="fa fa-pencil"></i><% end %>
         <%= link_to admin_job_path(job), :method => :delete, :class => "btn btn-xs btn-default btn-danger", :data => { :confirm => "Are you sure?" } do %><i class="fa fa-trash-o"></i><% end %>
@@ -60,7 +56,7 @@
         <% end %>
       </td>
       <td>
-        <%= local_time(job.created_at, '%B %e, %Y %l:%M%p')%>
+        Submitted <%= time_ago_in_words(job.created_at) %> ago
       </td>
     </tr>
   <% end %>

@@ -6,10 +6,11 @@
 <table class="table table-boldered">
   <thead>
     <tr>
-      <td>Job Supply</td>
-      <td>Wage Lower Bound</td>
-      <td>Wage Upper Bound</td>
-      <td>Post Time</td>
+      <td><i class="fa fa-globe" aria-hidden="true"></i>Job Supply</td>
+      <td><i class="fa fa-building" aria-hidden="true"></i>Company</td>
+      <td><i class="fa fa-location-arrow" aria-hidden="true"></i>Location</td>
+      <td><i class="fa fa-money" aria-hidden="true"></i>Salary</td>
+      <td><i class="fa fa-clock-o" aria-hidden="true"></i>Post Time</td>
     </tr>
   </thead>
   <tbody>
@@ -18,9 +19,10 @@
         <td>
           <%= link_to job.title, job%>
         </td>
-        <td><%= job.wage_lower_bound%></td>
-        <td><%= job.wage_upper_bound%></td>
-        <td><%= local_time(job.created_at, '%B %e, %Y %l:%M%p')%></td>
+        <td><%= job.company%></td>
+        <td><%= job.location%></td>
+        <td><%= job.wage_lower_bound%> ~ <%= job.wage_upper_bound%></td>
+        <td>Submitted <%= time_ago_in_words(job.created_at) %> ago</td>
       </tr>
     <% end %>
   </tbody>
@@ -44,6 +46,7 @@
   </div>
 
 </table>
+
 
 <div class="text-center">
   <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>

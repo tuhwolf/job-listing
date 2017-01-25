@@ -1,4 +1,26 @@
-<h1><%= @job.title%></h1>
-<P>
-  <%= simple_format(@job.description)%>
-</P>
+<div class="container" style="margin-top: 30px;">
+    <div class="row">
+  		<div class="col-sm-12">
+        <div class="well">
+    		<h2><%= @job.title %></h2>
+        <hr />
+        
+
+    		<ul>
+    			<li>company: <%= @job.company %></li>
+    			<li>location: <%= @job.location %></li>
+    			<li>wage_lower_bound: <%= @job.wage_lower_bound %></li>
+    			<li>wage_upper_bound: <%= @job.wage_upper_bound %></li>
+    		</ul>
+        <hr />
+        <p>
+          <%= simple_format(@job.description)%>
+        </p>
+    		<hr>
+
+    		<hr>
+
+    	</div>
+    </div>
+	</div>
+</div>
